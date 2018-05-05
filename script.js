@@ -11,6 +11,10 @@
     { name: 'water', value: 30, color: '#334d5c' },
   ];
 
+  let divChart, svgChart, canvasChart;
+
+  const chartsContainer = document.getElementById("charts-container");
+
   function renderDivBars(chartEl) {
     const barsContainer = document.createElement('div');
     barsContainer.style = "position: relative";
@@ -59,7 +63,6 @@
   }
 
   function renderChart(title) {
-    const chartsContainer = document.getElementById("charts-container");
     const chartEl = document.createElement('div');
     chartEl.className = "chart-container";
     chartEl.style = "height: 140px;";
@@ -87,18 +90,37 @@
 
   function renderDivChart() {
     const chart = renderChart('div');
+    chart.setAttribute('id', 'div-chart');
     renderDivBars(chart);
   }
 
   function renderSVGChart() {
     const chart = renderChart('svg');
+    chart.setAttribute('id', 'svg-chart');
     renderSVGBars(chart);
   }
 
   function renderCanvasChart() {
     const chart = renderChart('canvas');
+    chart.setAttribute('id', 'canvas-chart');
     renderCanvasBars(chart);
   }
+
+  const moreButton = document.createElement("button");
+  moreButton.textContent = "more earth";
+  moreButton.onclick = e => {
+    barsData[0].value += 10;
+    const divChart = document.getElementById('div-chart');
+    divChart.parentNode.removeChild(divChart);
+    const svgChart = document.getElementById('svg-chart');
+    svgChart.parentNode.removeChild(svgChart);
+    const canvasChart = document.getElementById('canvas-chart');
+    canvasChart.parentNode.removeChild(canvasChart);
+    renderDivChart();
+    renderSVGChart();
+    renderCanvasChart();
+  }
+  chartsContainer.appendChild(moreButton);
 
   renderDivChart();
   renderSVGChart();
