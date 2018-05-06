@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <title>Rocket</title>
+  </head>
+  <body>
+    <div id="nav-container" class="nav-container"></div>
+    <div id="charts-container" class="charts-container" />
+    <div className="charts-container">
+      <button id="pledge-button">
+          more pledged
+      </button>
+      <div>
+        <svg width="589.487px" height="400px" viewBox="200 0 389.487 589.487" >
+          <defs>
+            <clipPath id="paid">
+              <rect id="clip-paid" x="0" y="0" width="600" height="0" />
+            </clipPath>
+            <clipPath id="pledged">
+              <rect id="clip-pledged" x="0" y="0" width="600" height="0" />
+            </clipPath>
+          </defs>
+          <g id="label-pledged">
+            <text alignment-baseline="hanging" font-size="36px" fill="#69a">pledged</text>
+          </g>
+          <g id="label-paid">
+            <text alignment-baseline="hanging" font-size="36px" fill="#638">paid</text>
+          </g>
+          <path id="path-bg" fill="#bbb" />
+          <path id="path-paid" fill="#638" clip-path="url(#paid)"/>
+          <path id="path-pledged" fill="#69a" clip-path="url(#pledged)" />
+        </svg>
+      </div>
+    </div>
+    <script src="./scripts/nav.js"></script>
+    <script src="./scripts/rocket.js"></script>
+  </body>
+</html>
