@@ -11,10 +11,9 @@
     { name: 'water', value: 30, color: '#334d5c' },
   ];
 
-  let divChart, svgChart, canvasChart;
-
   const chartsContainer = document.getElementById("charts-container");
 
+  // Render bars for the bar chart using divs
   function renderDivBars(chartEl) {
     const barsContainer = document.createElement('div');
     barsContainer.style = "position: relative";
@@ -31,6 +30,7 @@
     });
   }
 
+  // Render bars for the bar chart using SVG
   function renderSVGBars(chartEl) {
     const barsContainer = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     barsContainer.setAttribute("width", 400);
@@ -48,6 +48,7 @@
     });
   }
 
+  // Render bars for the bar chart using Canvas
   function renderCanvasBars(chartEl) {
     const barsContainer = document.createElement("canvas");
     barsContainer.setAttribute("width", 400);
@@ -62,6 +63,7 @@
     });
   }
 
+  // Render everything in a chart except the bars
   function renderChart(title) {
     const chartEl = document.createElement('div');
     chartEl.className = "chart-container";
@@ -88,40 +90,51 @@
     return chartEl;
   }
 
+  // Render an entire chart including div bars
   function renderDivChart() {
+    const divChart = document.getElementById('div-chart');
+    if (divChart) {
+      divChart.parentNode.removeChild(divChart);
+    }
     const chart = renderChart('div');
     chart.setAttribute('id', 'div-chart');
     renderDivBars(chart);
   }
 
+  // Render an entire chart including SVG bars
   function renderSVGChart() {
+    const svgChart = document.getElementById('svg-chart');
+    if (svgChart) {
+      svgChart.parentNode.removeChild(svgChart);
+    }
     const chart = renderChart('svg');
     chart.setAttribute('id', 'svg-chart');
     renderSVGBars(chart);
   }
 
+  // Render an entire chart including canvas bars
   function renderCanvasChart() {
+    const canvasChart = document.getElementById('canvas-chart');
+    if (canvasChart) {
+      canvasChart.parentNode.removeChild(canvasChart);
+    }
     const chart = renderChart('canvas');
     chart.setAttribute('id', 'canvas-chart');
     renderCanvasBars(chart);
   }
 
+  // "More earth" button
   const moreButton = document.createElement("button");
   moreButton.textContent = "more earth";
   moreButton.onclick = e => {
     barsData[0].value += 10;
-    const divChart = document.getElementById('div-chart');
-    divChart.parentNode.removeChild(divChart);
-    const svgChart = document.getElementById('svg-chart');
-    svgChart.parentNode.removeChild(svgChart);
-    const canvasChart = document.getElementById('canvas-chart');
-    canvasChart.parentNode.removeChild(canvasChart);
     renderDivChart();
     renderSVGChart();
     renderCanvasChart();
   }
   chartsContainer.appendChild(moreButton);
 
+  // Initial render of all 3 charts
   renderDivChart();
   renderSVGChart();
   renderCanvasChart();
