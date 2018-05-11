@@ -1,5 +1,5 @@
 (function nav() {
-  const buttons = ['bars', 'lines', 'rocket'];
+  const buttons = ['bars', 'lines', 'rocket', 'timeline'];
   const navContainer = document.getElementById("nav-container");
 
   buttons.forEach(button => {

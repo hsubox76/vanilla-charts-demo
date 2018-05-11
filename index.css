@@ -17,6 +17,13 @@ body {
   color: #37a;
   cursor: pointer;
 }
+.repo-link {
+  display: block;
+  padding: 10px;
+  margin: 10px 20px;
+  font-size: 20px;
+  border: 1px solid grey;
+}
 .chart-title {
   font-size: 1.3rem;
   width: 80px;
@@ -127,4 +134,38 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.timeline-charts-container {
+  display: flex;
+}
+
+.timeline-legend {
+  padding: 20px;
+  padding-top: 60px;
+}
+
+.timeline-legend > div {
+  height: 32px;
+  color: #333;
+}
+
+#timeline-container {
+  width: 800px;
+  height: 320px;
+  margin-left: 20px;
+  border: 1px solid #999;
+  padding: 10px;
+  position: absolute;
+}
+
+.times {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  width: 800px;
+  padding: 10px;
+  align-items: center;
+  color: #333;
+  margin-left: 20px;
 }
