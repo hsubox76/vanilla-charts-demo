@@ -14,7 +14,7 @@
       return '#45b29d';
     } else if (num <= 0.6) {
       return '#e27a3f';
-    } else if (num <= 0.6) {
+    } else if (num <= 0.8) {
       return '#334d5c';
     } else {
       return '#fff';

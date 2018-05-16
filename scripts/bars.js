@@ -16,7 +16,7 @@
   // Render bars for the bar chart using divs
   function renderDivBars(chartEl) {
     const barsContainer = document.createElement('div');
-    barsContainer.style = "position: relative";
+    barsContainer.style = "position: relative; width: 400px; height: 140px";
     chartEl.appendChild(barsContainer);
   
     barsData.forEach((barData, index) => {
